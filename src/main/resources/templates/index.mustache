@@ -1,14 +1,41 @@
 {{>layout/header}}
-    <h1>나의 웹 테스트 공간</h1>
+
+<!--네비게이션 바 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">웹 기술 테스트장</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {{#userName}}
+                Logged in as : <span id="user">{{userName}}</span>
+                <a href="/logout" class="btn btn-info active" role="button">logout</a>
+            {{/userName}}
+            {{^userName}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        로그인
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a href="/oauth2/authorization/google"  class="dropdown-item" >Google login  </a>
+                        <a href="/oauth2/authorization/naver"  class="dropdown-item" >Naver login  </a>
+                    </div>
+                </li>
+            {{/userName}}
+        </ul>
+    </div>
+</nav>
+
     <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-6">
-                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-            </div>
-        </div>
-        <br>
         <!--목록 출력 -->
         <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+                </div>
+            </div>
+            <br>
             <table class="table talbe-horizontal table-bordered">
                 <thead class="thead-strong">
                 <tr>
