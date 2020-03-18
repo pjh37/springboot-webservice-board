@@ -1,0 +1,59 @@
+
+
+main{
+
+    display:block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    color:#fff;
+    -webkit-animation:backgroundMove 3s 0s;
+}
+main section > div{
+    width:1200px;
+    margin : 0 auto;
+    position:relative;
+    box-sizing:border-box;
+}
+main >div{
+    padding:40px 0;
+}
+.index .visual .slide{
+    font-size:36px;
+    padding:350px 0px 50px 0px;
+    line-height:80px;
+    font-weight:500;
+    color:rgb(89,174,255);
+}
+.index .visual .slide p{
+    font-size:40px;
+    line-height:initial;
+    color:#fff;
+
+}
+p{
+    display:block;
+    -webkit-animation:move 3s 0s;
+}
+@-webkit-keyframes backgroundMove{
+    from{
+        opacity: 0.0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@-webkit-keyframes move {
+    from{
+        opacity: 0.0;
+     }
+    to{
+        opacity: 1;
+    }
+}
+
+

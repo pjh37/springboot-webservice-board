@@ -1,0 +1,35 @@
+{{>layout/header}}
+{{>layout/nav}}
+<div class="col-md-12 board">
+    <!--목록 출력 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+            </div>
+        </div>
+        <br>
+        <table class="table talbe-horizontal table-bordered">
+            <thead class="thead-strong">
+            <tr>
+                <th style="width:10%">게시글</th>
+                <th style="width:70%">제목</th>
+                <th style="width:10%">작성자</th>
+                <th style="width:10%">최종 수정일</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#posts}}
+                <tr>
+                    <td style="width:10%">{{id}}</td>
+                    <td style="width:70%"><a href="/posts/update/{{id}}">{{title}}</td>
+                    <td style="width:10%">{{author}}</td>
+                    <td style="width:10%">{{modifiedDate}}</td>
+                </tr>
+            {{/posts}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{{>layout/footer}}

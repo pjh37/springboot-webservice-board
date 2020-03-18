@@ -21,11 +21,16 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user){
+        return "index";
+    }
+
+    @GetMapping("/board")
+    public String board(Model model, @LoginUser SessionUser user){
         model.addAttribute("posts",postsService.findAllDesc());
         if(user!=null){
             model.addAttribute("userName",user.getName());
         }
-        return "index";
+        return "board";
     }
 
     @GetMapping("/posts/save")
