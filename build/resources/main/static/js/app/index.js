@@ -1,6 +1,9 @@
 var index={
     init:function(){
         var _this=this;
+        $(document).ready(function() {
+            $(".visual").css("background-image", "url('/images/ocean.jpg')");
+        })
         $('#btn-save').on('click',function(){
             _this.save();
         });
