@@ -2,7 +2,7 @@ var index={
     init:function(){
         var _this=this;
         $(document).ready(function() {
-            $("main").css("background-image", "url('/images/ocean.jpg')");
+            $(".visual").css("background-image", "url('/images/ocean.jpg')");
         })
         $('#btn-save').on('click',function(){
             _this.save();
