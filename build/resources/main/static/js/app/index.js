@@ -13,6 +13,9 @@ var index={
          $('#btn-delete').on('click',function(){
             _this.delete();
          });
+         $('#btn-reply-save').on('click',function(){
+            _this.reply_save();
+         });
     },
     save :function(){
         var data={
@@ -28,7 +31,7 @@ var index={
             data: JSON.stringify(data)
         }).done(function(){
             alert('글이 등록됬습니다');
-            window.location.href='/';
+            window.location.href='/board';
         }).fail(function(error){
             alert(JSON.stringify(error));
         });
@@ -46,7 +49,7 @@ var index={
             data: JSON.stringify(data)
          }).done(function(){
                  alert('글이 수정됬습니다');
-                 window.location.href='/';
+                 window.location.href='/board';
          }).fail(function(error){
                  alert(JSON.stringify(error));
          });
@@ -59,11 +62,26 @@ var index={
              contentType:'application/json; charset=utf-8'
          }).done(function(){
               alert('글이 삭제됬습니다');
-              window.location.href='/';
+              window.location.href='/board';
          }).fail(function(error){
               alert(JSON.stringify(error));
          });
+    },reply_save:function(){
 
+        var data={
+            id:$('#id').val(),
+            author:$('#author').val(),
+            content:$('#reply_content').val()
+         };
+        $.ajax({
+            type:'post',
+            url:'/api/v1/reply',
+            dataType:'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+         }).fail(function(error){
+            alert(JSON.stringify(error));
+         });
     }
 };
 index.init();

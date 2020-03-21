@@ -1,0 +1,106 @@
+header,section,main{
+    display:block;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    left:0;
+    top:0;
+    z-index:20;
+    background:rgba(0,0,0,.6);;
+}
+header h1{
+    float:left;
+    line-height: 81px;
+    height:81px;
+}
+header h1 a{
+    display:inline-block;
+}
+header > div {
+    width:1200px;
+    height:81px;
+    margin :0 auto;
+    position:relative;
+}
+
+header li{
+    display:inline-block;
+}
+
+header li a{
+    display:block;
+    font-size:16px;
+    padding:0 20px;
+    line-height:81px;
+}
+header li a:hover{
+    color:#004abf;
+}
+
+header .menu{
+    float:left;
+    margin-left:20px;
+}
+header menu ul li a{
+    color:#000
+    text-decoration:none;
+}
+header .account{
+    float:right;
+}
+header .account #user{
+    display:inline-block
+}
+header .account img{
+    width:28px;
+    border-radius:50%;
+    margin-right:8px;
+    margin-top:-4px;
+}
+header .dropdown-item{
+    display:block;
+}
+header .dropdown-item{
+     line-height:1.2;
+     padding-top : 10px;
+     padding-bottom:4px;
+}
+.nav-link{
+    padding:0px 0px 0px 0px;
+}
+li,ol,ul{
+    list-style:none;
+    margin : 0px 0px 0px 0px;
+}
+label, img, input, select, button {
+    vertical-align: middle;
+}
+
+.container{
+    padding:100px 0px;
+}
+.container #content {
+    height: 600px;
+}
+footer{
+    display:block;
+    background: #39424c;
+    font-size: 14px;
+}
+footer .info{
+    color: rgb(193, 189, 180);
+}
+footer > div {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    padding: 40px 0px;
+}
+@media (prefers-color-scheme: dark){
+    a{
+        color:#fff
+    }
+}

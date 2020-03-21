@@ -1,0 +1,50 @@
+<div class="reply_main">
+    <div class="reply_write">
+        <!-- 댓글 작성  -->
+        <form>
+            <div class="form-group">
+                <label for="author">작성자</label>
+                <input type="text" class="form-control" id="author"  value="{{post.author}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="reply_content">댓글</label>
+                <textarea  class="form-control" id="reply_content"></textarea>
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary" id="btn-reply-save">등록</button>
+    </div>
+    <div class="reply_order">
+        <span>댓글순</span>
+        <span>최신순</span>
+    </div>
+    <div class="reply_list">
+        <!-- 댓글 목록 -->
+        <!-- 테스트 데이터-->
+
+        <div class="reply">
+            <div class="header">
+                <p>익명</p>
+            </div>
+            <p>여기에 댓글이 들어가나???</p>
+            <p>2020.3.21</p>
+            <hr/>
+        </div>
+        <div class="reply">
+            <div class="header">
+                <p>익명</p>
+            </div>
+            <p>ajax로 댓글 받아오자</p>
+            <p>2020.2.21</p>
+            <hr/>
+        </div>
+        <div class="reply">
+            <div class="header">
+                <p>익명</p>
+            </div>
+            <p>rest는 get으로 받아와</p>
+            <p>2020.1.21</p>
+            <hr/>
+        </div>
+        <!-- /////////////  -->
+    </div>
+</div>
