@@ -77,8 +77,12 @@ li,ol,ul{
 label, img, input, select, button {
     vertical-align: middle;
 }
-.board{
-    padding:100px;
+
+.container{
+    padding:100px 0px;
+}
+.container #content {
+    height: 600px;
 }
 footer{
     display:block;
