@@ -2,6 +2,7 @@ package com.pjh.board.springboot.web;
 
 import com.pjh.board.springboot.config.auth.LoginUser;
 import com.pjh.board.springboot.config.auth.dto.SessionUser;
+import com.pjh.board.springboot.domain.reply.ReplyRepository;
 import com.pjh.board.springboot.service.PostsService;
 import com.pjh.board.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
 
     private final PostsService postsService;
+    private final ReplyRepository replyRepository;
     private final HttpSession httpSession;
 
     @GetMapping("/")
@@ -48,6 +50,7 @@ public class IndexController {
     public String postsUpdate(@PathVariable Long id,@LoginUser SessionUser user,Model model){
         PostsResponseDto dto=postsService.findById(id);
         model.addAttribute("post",dto);
+        model.addAttribute("reply",replyRepository.findAllDescById(id));
         if(user!=null){
             model.addAttribute("userName",user.getName());
         }

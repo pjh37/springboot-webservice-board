@@ -12,6 +12,26 @@
     margin-right: auto;
     margin-left: auto;
 }
+.reply > div{
+    display:block;
+}
+.reply > .header > span{
+    display:inline-block;
+    font-size:13px;
+}
+.reply > .header .menu{
+    float:right;
+    margin:0px 0px 0px 8px;
+}
+.reply > .main > p{
+    color:#F5F5F5;
+}
+.reply > .footer > a span{
+     display:inline-block;
+}
+.reply > .footer a{
+    color:#348DFF;
+}
 @media (min-width: 1200px)
 .reply_main{
     max-width: 1140px;
