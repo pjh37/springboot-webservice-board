@@ -19,32 +19,22 @@
     </div>
     <div class="reply_list">
         <!-- 댓글 목록 -->
-        <!-- 테스트 데이터-->
-
-        <div class="reply">
-            <div class="header">
-                <p>익명</p>
+        {{#reply}}
+            <div class="reply">
+                <div class="header">
+                    <span>{{author}}</span>
+                    <span class="menu '{{author}}'">수정</span>
+                    <span class="menu '{{author}}'">삭제</span>
+                </div>
+                <div class="main">
+                    <p>{{content}}</p>
+                </div>
+                <div class="footer">
+                    <span>{{modifiedDate}}</span>
+                    <a href="#">답글</a>
+                </div>
+                <hr/>
             </div>
-            <p>여기에 댓글이 들어가나???</p>
-            <p>2020.3.21</p>
-            <hr/>
-        </div>
-        <div class="reply">
-            <div class="header">
-                <p>익명</p>
-            </div>
-            <p>ajax로 댓글 받아오자</p>
-            <p>2020.2.21</p>
-            <hr/>
-        </div>
-        <div class="reply">
-            <div class="header">
-                <p>익명</p>
-            </div>
-            <p>rest는 get으로 받아와</p>
-            <p>2020.1.21</p>
-            <hr/>
-        </div>
-        <!-- /////////////  -->
+        {{/reply}}
     </div>
 </div>

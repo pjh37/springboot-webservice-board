@@ -31,6 +31,7 @@ var index={
             data: JSON.stringify(data)
         }).done(function(){
             alert('글이 등록됬습니다');
+
             window.location.href='/board';
         }).fail(function(error){
             alert(JSON.stringify(error));
@@ -67,7 +68,6 @@ var index={
               alert(JSON.stringify(error));
          });
     },reply_save:function(){
-
         var data={
             id:$('#id').val(),
             author:$('#author').val(),
@@ -79,9 +79,14 @@ var index={
             dataType:'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
+         }).done(function(){
+            $('#reply_content').val("");
+            alert('댓글이 등록 완료.');
+            window.location.href='/posts/read/'+$('#id').val();
          }).fail(function(error){
             alert(JSON.stringify(error));
          });
     }
 };
 index.init();
+
