@@ -81,8 +81,33 @@ var index={
             data: JSON.stringify(data)
          }).done(function(){
             $('#reply_content').val("");
-            alert('댓글이 등록 완료.');
-            window.location.href='/posts/read/'+$('#id').val();
+            var thumb=$('#thumb').attr('src');
+            var str="";
+            str+="<div class='reply'>"
+            +"<div class='thumb'>"
+            +"<img src="+thumb+" />"
+            +"</div>"
+            +" <div class='description'>"
+            +"<div class='header'>"
+            +"<span>"+data.author+"</span>"
+            +"<span>방금</span>"
+            +"<div class='menu'>"
+            +"<a href='javascript:reply_update()'; >수정</a>"
+            +"<a href='javascript:reply_delete()'; >삭제</a>"
+            +"</div>"
+            +"</div>"
+            +" <div class='main'>"
+            +"<p>"+data.content+"</p>"
+            +"</div>"
+            +"<div class='footer'>"
+            +" <a href='#'>답글</a>"
+            +"</div>"
+            +" </div>"
+            +" <hr/>"
+            +"</div>";
+            $('.reply_list').prepend(str);
+            //alert('댓글이 등록 완료.');
+            //window.location.href='/posts/read/'+$('#id').val();
          }).fail(function(error){
             alert(JSON.stringify(error));
          });

@@ -19,6 +19,7 @@ public class ReplyApiController {
        return replyService.save(requestDto);
     }
 
+    //불러오기
     @GetMapping("/api/v1/reply/{id}")
     public List<ReplyListResponseDto> findAllDescById(@PathVariable Long id){
         return replyService.findAllDescById(id);

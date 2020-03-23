@@ -25,6 +25,7 @@ public class IndexController {
     public String index(Model model, @LoginUser SessionUser user){
         if(user!=null){
             model.addAttribute("userName",user.getName());
+            model.addAttribute("userThumb",user.getPicture());
         }
         return "index";
     }
@@ -34,6 +35,7 @@ public class IndexController {
         model.addAttribute("posts",postsService.findAllDesc());
         if(user!=null){
             model.addAttribute("userName",user.getName());
+            model.addAttribute("userThumb",user.getPicture());
         }
         return "board";
     }
@@ -42,6 +44,7 @@ public class IndexController {
     public String postsSave(Model model, @LoginUser SessionUser user){
         if(user!=null){
             model.addAttribute("userName",user.getName());
+            model.addAttribute("userThumb",user.getPicture());
         }
         return "posts-save";
     }
@@ -53,6 +56,7 @@ public class IndexController {
         model.addAttribute("reply",replyRepository.findAllDescById(id));
         if(user!=null){
             model.addAttribute("userName",user.getName());
+            model.addAttribute("userThumb",user.getPicture());
         }
         return "posts-read";
     }
