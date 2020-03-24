@@ -13,37 +13,43 @@
     margin-left: auto;
 }
 .reply{
-    display: flex;
-    padding-bottom: 30px;
+   display:block;
 }
-.reply > div{
-    display:block;
+.reply_container{
+     display: flex;
+     padding-bottom: 30px;
+}
+
+.reply #modifiedDate{
+    padding-left: 8px;
 }
 .reply > .header > span{
     display:inline-block;
     font-size:13px;
 }
-.reply .header .menu{
+.reply .header .menu a{
+    padding-left: 8px;
+    font-size: 13px;
     margin:0px 0px 0px 8px;
     display: inline-block;
     float: right;
 }
 
-.reply > .thumb > img{
+.reply  .thumb  img{
     width: 48px;
     border-radius: 50%;
 }
-.reply > .description{
+.reply  .description{
     display:block;
     width:100%;
     padding-left: 15px;
 }
-.reply > .main > p{
+.reply  .main  p{
     color:#F5F5F5;
     padding-top: 5px;
 }
 
-.reply > .footer > a span{
+.reply  .footer  a span{
      display:inline-block;
 }
 .reply > .footer a{

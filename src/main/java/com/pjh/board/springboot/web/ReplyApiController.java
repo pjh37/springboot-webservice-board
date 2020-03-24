@@ -3,6 +3,7 @@ package com.pjh.board.springboot.web;
 import com.pjh.board.springboot.service.ReplyService;
 import com.pjh.board.springboot.web.dto.ReplyListResponseDto;
 import com.pjh.board.springboot.web.dto.ReplySaveRequestDto;
+import com.pjh.board.springboot.web.dto.ReplyUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +21,22 @@ public class ReplyApiController {
     }
 
     //불러오기
-    @GetMapping("/api/v1/reply/{id}")
-    public List<ReplyListResponseDto> findAllDescById(@PathVariable Long id){
-        return replyService.findAllDescById(id);
+    @GetMapping("/api/v1/reply/{postId}")
+    public List<ReplyListResponseDto> findAllDescById(@PathVariable Long postId){
+        return replyService.findAllDescById(postId);
     }
+
+    //수정하기
+    @PutMapping("/api/v1/reply/{id}")
+    public Long update(@PathVariable Long id,@RequestBody ReplyUpdateRequestDto requestDto){
+        return replyService.update(id,requestDto);
+    }
+
+    //삭제
+    @DeleteMapping("/api/v1/reply/{id}")
+    public Long delete(@PathVariable Long id){
+        replyService.delete(id);
+        return id;
+    }
+
 }

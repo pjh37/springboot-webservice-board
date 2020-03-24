@@ -1,4 +1,4 @@
-var index={
+var post={
     init:function(){
         var _this=this;
         $(document).ready(function() {
@@ -13,9 +13,7 @@ var index={
          $('#btn-delete').on('click',function(){
             _this.delete();
          });
-         $('#btn-reply-save').on('click',function(){
-            _this.reply_save();
-         });
+
     },
     save :function(){
         var data={
@@ -67,26 +65,7 @@ var index={
          }).fail(function(error){
               alert(JSON.stringify(error));
          });
-    },reply_save:function(){
-        var data={
-            id:$('#id').val(),
-            author:$('#author').val(),
-            content:$('#reply_content').val()
-         };
-        $.ajax({
-            type:'post',
-            url:'/api/v1/reply',
-            dataType:'json',
-            contentType:'application/json; charset=utf-8',
-            data: JSON.stringify(data)
-         }).done(function(){
-            $('#reply_content').val("");
-            alert('댓글이 등록 완료.');
-            window.location.href='/posts/read/'+$('#id').val();
-         }).fail(function(error){
-            alert(JSON.stringify(error));
-         });
     }
 };
-index.init();
+post.init();
 

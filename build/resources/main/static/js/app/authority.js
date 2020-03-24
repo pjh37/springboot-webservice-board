@@ -7,8 +7,6 @@ var auth={
         if(user==author){
             $('#title').removeAttr('readonly');
             $('#content').removeAttr('readonly');
-        }else{
-            alert(user+" "+author);
         }
     }
 }

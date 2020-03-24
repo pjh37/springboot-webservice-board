@@ -21,27 +21,29 @@
         <!-- 댓글 목록 -->
         {{#reply}}
             <div class="reply">
-                <div class="thumb">
-                    <img src="{{userThumb}}"/>
-                </div>
-                <div class="description">
-                    <div class="header">
-                        <span>{{author}}</span>
-                        <span>{{modifiedDate}}</span>
-                        <div class="menu">
-                            <a href="javascript:reply_update();" >수정</a>
-                            <a href="javascript:reply_delete();" >삭제</a>
+                <div class="reply_container">
+                    <div class="thumb">
+                        <img src="{{userThumb}}"/>
+                    </div>
+                    <div class="description">
+                        <div class="header">
+                            <span>{{author}}</span>
+                            <span id="modifiedDate">{{modifiedDate}}</span>
+                            <div class="menu">
+                                <a href="javascript:reply_update('{{id}}');" >수정</a>
+                                <a href="javascript:reply_delete('{{id}}');" >삭제</a>
+                            </div>
+                        </div>
+                        <div class="main">
+                            <p>{{content}}</p>
+                        </div>
+                        <div class="footer">
+                            <a href="#">답글</a>
                         </div>
                     </div>
-                    <div class="main">
-                        <p>{{content}}</p>
-                    </div>
-                    <div class="footer">
-                        <a href="#">답글</a>
-                    </div>
+                    <hr/>
                 </div>
 
-                <hr/>
             </div>
         {{/reply}}
     </div>
