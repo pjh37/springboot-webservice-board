@@ -9,21 +9,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReplySaveRequestDto {
     private Long id;
+    private Long parent;
+    private Long re_reply_cnt;
     private String author;
     private String content;
 
-
     @Builder
-    public ReplySaveRequestDto(Long id,String content,String author){
+    public ReplySaveRequestDto(Long id,Long parent,String content,String author){
        this.id=id;
+       this.parent=parent;
        this.author=author;
        this.content=content;
-
     }
-    public Reply toEntity(){
 
+    public Reply toEntity(){
         return Reply.builder()
                 .posts_id(id)
+                .parent(parent)
+                .re_reply_cnt(re_reply_cnt)
                 .author(author)
                 .content(content)
                 .build();

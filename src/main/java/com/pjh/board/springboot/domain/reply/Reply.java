@@ -5,6 +5,7 @@ import com.pjh.board.springboot.domain.posts.Posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -17,9 +18,14 @@ public class Reply extends BaseTimeEntity {
     private Long id;
 
     //fk 외래키
-
     @JoinColumn(name = "posts_id")
     private Long posts_id;
+
+    @Column(columnDefinition = "long default -1L")
+    private Long parent;//부모 댓글의 id
+
+    @Column(nullable = false)
+    private Long re_reply_cnt;
 
     @Column(columnDefinition = "TEXT",nullable = false)
     private String author;
@@ -28,12 +34,17 @@ public class Reply extends BaseTimeEntity {
     private String content;
 
     @Builder
-    public Reply(String author, String content,Long posts_id){
+    public Reply(String author, String content,Long posts_id,Long parent,Long re_reply_cnt){
         this.author=author;
         this.content=content;
         this.posts_id=posts_id;
+        this.parent=parent;
+        this.re_reply_cnt=re_reply_cnt;
     }
     public void update(String content){
         this.content=content;
+    }
+    public void reReplyCntUpdate(Long cnt){
+        this.re_reply_cnt=cnt+1;
     }
 }
