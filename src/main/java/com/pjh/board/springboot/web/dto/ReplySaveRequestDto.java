@@ -15,11 +15,12 @@ public class ReplySaveRequestDto {
     private String content;
 
     @Builder
-    public ReplySaveRequestDto(Long id,Long parent,String content,String author){
+    public ReplySaveRequestDto(Long id,Long parent,Long re_reply_cnt,String content,String author){
        this.id=id;
        this.parent=parent;
        this.author=author;
        this.content=content;
+       this.re_reply_cnt=re_reply_cnt;
     }
 
     public Reply toEntity(){
