@@ -49,11 +49,18 @@
     padding-top: 5px;
 }
 
+.reply .footer{
+    margin-bottom: 30px;
+}
+
 .reply  .footer  a span{
      display:inline-block;
 }
 .reply > .footer a{
     color:#348DFF;
+}
+.btn_reply_update{
+    margin-right:10px;
 }
 @media (min-width: 1200px)
 .reply_main{
