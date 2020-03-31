@@ -87,7 +87,6 @@ public class ReplyApiControllerTest {
                 .author(replyAuthor)
                 .content(replyContent)
                 .id(1L)
-                .re_reply_cnt(0L)
                 .build();
 
         url="http://localhost:"+port+"/api/v1/reply";

@@ -26,6 +26,12 @@ public class ReplyApiController {
         return replyService.findAllDescById(postId);
     }
 
+    //자식 댓글 불러오기
+    @GetMapping("/api/v1/reply/child/{parentId}")
+    public List<ReplyListResponseDto> findAllChildDescById(@PathVariable Long parentId){
+        return replyService.findAllChildDescById(parentId);
+    }
+
     //수정하기
     @PutMapping("/api/v1/reply/{id}")
     public Long update(@PathVariable Long id,@RequestBody ReplyUpdateRequestDto requestDto){

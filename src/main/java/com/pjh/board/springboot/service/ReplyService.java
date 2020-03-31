@@ -22,12 +22,28 @@ public class ReplyService {
 
     @Transactional
     public Long save(ReplySaveRequestDto requestDto){
+        if(requestDto.getParent()==null){requestDto.setParent(-1L);}
+        else{
+            Reply parentReply=replyRepository.findById(requestDto.getParent())
+                    .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id="+requestDto.getParent()));
+            parentReply.countUpdate(parentReply.getCount());
+        }
         return replyRepository.save(requestDto.toEntity()).getId();//댓글 번호 리턴
     }
 
+    //부모댓글만 불러오기
     @Transactional(readOnly = true)
     public List<ReplyListResponseDto> findAllDescById(Long id){
         return replyRepository.findAllDescById(id)
+                .stream()
+                .map(ReplyListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    //자식댓글 불러오기
+    @Transactional(readOnly = true)
+    public List<ReplyListResponseDto> findAllChildDescById(Long id){
+        return replyRepository.findAllChildDescById(id)
                 .stream()
                 .map(ReplyListResponseDto::new)
                 .collect(Collectors.toList());
@@ -45,7 +61,6 @@ public class ReplyService {
     public void delete(Long id){
         Reply reply=replyRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
-
         replyRepository.delete(reply);
     }
 }

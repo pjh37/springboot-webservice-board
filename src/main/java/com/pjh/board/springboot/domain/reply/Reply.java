@@ -21,11 +21,10 @@ public class Reply extends BaseTimeEntity {
     @JoinColumn(name = "posts_id")
     private Long posts_id;
 
-    @Column(columnDefinition = "long default -1L")
-    private Long parent;//부모 댓글의 id
+    //@Column(columnDefinition = "bigint default -1")
+    private Long parent=-1L;//부모 댓글의 id
 
-    @Column(nullable = false)
-    private Long re_reply_cnt;
+    private Long count;
 
     @Column(columnDefinition = "TEXT",nullable = false)
     private String author;
@@ -39,12 +38,16 @@ public class Reply extends BaseTimeEntity {
         this.content=content;
         this.posts_id=posts_id;
         this.parent=parent;
-        this.re_reply_cnt=re_reply_cnt;
+
     }
     public void update(String content){
         this.content=content;
     }
-    public void reReplyCntUpdate(Long cnt){
-        this.re_reply_cnt=cnt+1;
+    public void countUpdate(Long count){
+        if(this.count==null){
+            this.count=1L;
+        }else{
+            this.count+=1L;
+        }
     }
 }
