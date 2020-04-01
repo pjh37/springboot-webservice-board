@@ -17,7 +17,7 @@
 }
 .reply_container{
      display: flex;
-     padding-bottom: 30px;
+     padding-bottom: 10px;
 }
 
 .reply #modifiedDate{

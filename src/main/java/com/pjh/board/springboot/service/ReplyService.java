@@ -26,7 +26,7 @@ public class ReplyService {
         else{
             Reply parentReply=replyRepository.findById(requestDto.getParent())
                     .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id="+requestDto.getParent()));
-            parentReply.countUpdate(parentReply.getCount());
+            parentReply.countUpdate(parentReply.getCount()+1);
         }
         return replyRepository.save(requestDto.toEntity()).getId();//댓글 번호 리턴
     }
@@ -61,6 +61,7 @@ public class ReplyService {
     public void delete(Long id){
         Reply reply=replyRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
+        reply.countUpdate(reply.getCount()-1);
         replyRepository.delete(reply);
     }
 }

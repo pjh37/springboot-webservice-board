@@ -4,6 +4,7 @@ import com.pjh.board.springboot.config.auth.LoginUser;
 import com.pjh.board.springboot.config.auth.dto.SessionUser;
 import com.pjh.board.springboot.domain.reply.ReplyRepository;
 import com.pjh.board.springboot.service.PostsService;
+import com.pjh.board.springboot.service.ReplyService;
 import com.pjh.board.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,8 +19,7 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
 
     private final PostsService postsService;
-    private final ReplyRepository replyRepository;
-    private final HttpSession httpSession;
+    private final ReplyService replyService;
 
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user){
@@ -51,9 +51,9 @@ public class IndexController {
 
     @GetMapping("/posts/read/{id}")
     public String postsUpdate(@PathVariable Long id,@LoginUser SessionUser user,Model model){
-        PostsResponseDto dto=postsService.findById(id);
-        model.addAttribute("post",dto);
-        model.addAttribute("reply",replyRepository.findAllDescById(id));
+
+        model.addAttribute("post",postsService.findById(id));
+        model.addAttribute("reply",replyService.findAllDescById(id));
         if(user!=null){
             model.addAttribute("userName",user.getName());
             model.addAttribute("userThumb",user.getPicture());

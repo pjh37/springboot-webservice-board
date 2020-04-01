@@ -47,7 +47,7 @@ public class Reply extends BaseTimeEntity {
         if(this.count==null){
             this.count=1L;
         }else{
-            this.count+=1L;
+            this.count=count;
         }
     }
 }

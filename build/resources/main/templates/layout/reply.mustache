@@ -38,12 +38,12 @@
                             <p id="content_{{id}}">{{content}}</p>
                         </div>
                         <div class="footer">
-                            {{#re_reply_cnt}}
-                            <a href='javascript:;' onClick="javascript:re_reply_list('{{id}}');">답글 {{re_reply_cnt}} 보기</a>
-                            {{/re_reply_cnt}}
+                            {{#count}}
+                            <a href='javascript:;'  onClick="javascript:re_reply_list('{{id}}');">답글 {{count}}개 보기</a>
+                            {{/count}}
                             <a href='javascript:;' onClick="javascript:re_reply_display('{{id}}');">답글</a>
                         </div>
-                        <div class="re_reply_list">
+                        <div class="re_reply_list_{{id}}" style="display:none">
                         </div>
                     </div>
                     <hr/>

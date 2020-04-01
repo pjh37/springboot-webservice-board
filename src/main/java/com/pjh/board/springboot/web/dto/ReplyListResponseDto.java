@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 public class ReplyListResponseDto {
     private Long id;
     private Long posts_id;
+    private Long count;
     private String author;
     private String content;
     private LocalDateTime modifiedDate;
@@ -16,6 +17,7 @@ public class ReplyListResponseDto {
     public ReplyListResponseDto(Reply entity){
         this.id=entity.getId();
         this.posts_id=entity.getPosts_id();
+        this.count=entity.getCount();
         this.author=entity.getAuthor();
         this.content=entity.getContent();
         this.modifiedDate=entity.getModifiedDate();

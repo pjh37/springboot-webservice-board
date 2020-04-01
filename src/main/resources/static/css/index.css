@@ -69,6 +69,9 @@ p{
 .index .skill ul img {
     width: 64px;
 }
+#pagination{
+    padding-left:40%;
+}
 @-webkit-keyframes backgroundMove{
     from{
         opacity: 0.0;

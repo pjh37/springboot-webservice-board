@@ -89,7 +89,7 @@ function reply_update_display(id){
         +"</form>"
         +"<div class='menu'>"
         +"<button type='button' class='btn btn-primary btn_reply_update' onClick='reply_update("+id+")'>수정</button>"
-        +"<button type='button' class='btn btn-danger' onClick='reply_display_delete'>취소</button>"
+        +"<button type='button' class='btn btn-danger' onClick='reply_display_delete()'>취소</button>"
         +"</div>"
         +"</div>";
      $('#reply_'+id).append(str);
@@ -122,7 +122,7 @@ function re_reply_display(id){
            +"</div>"
            +"</div>";
         if($(".re_reply_display").length==0){
-            $('#reply_'+id).prepend(str);
+            $('#reply_'+id).append(str);
          }
 
 }
@@ -207,7 +207,7 @@ function re_reply_list(id){
                                    +" <div class='description'>"
                                    +"<div class='header'>"
                                    +"<span>"+reply.author+"</span>"
-                                   +"<span id='modifiedDate'>방금</span>"
+                                   +"<span id='modifiedDate'>"+reply.modifiedDate+"</span>"
                                    +"<div class='menu'>"
                                    +"<a href='javascript:;' onClick='reply_update_display("+reply.id+")' >수정</a>"
                                    +"<a href='javascript:;' onClick='reply_delete("+reply.id+")' >삭제</a>"
