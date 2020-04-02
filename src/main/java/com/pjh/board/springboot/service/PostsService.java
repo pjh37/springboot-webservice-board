@@ -7,6 +7,9 @@ import com.pjh.board.springboot.web.dto.PostsResponseDto;
 import com.pjh.board.springboot.web.dto.PostsSaveRequestDto;
 import com.pjh.board.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,13 +42,18 @@ public class PostsService {
     }
 
     @Transactional(readOnly = true)
-    public List<PostsListResponseDto> findAllDesc(){
-        return postsRepository.findAllDesc()
+    public List<PostsListResponseDto> findAllDesc(Integer curPage){
+        Pageable pageable= PageRequest.of(curPage,10,new Sort(Sort.Direction.DESC,"id"));
+        return postsRepository.findAllDesc(pageable)
                 .stream()
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
-
     }
+    @Transactional(readOnly = true)
+    public Long Count(){
+        return postsRepository.count();
+    }
+
     @Transactional
     public void delete(Long id){
         Posts posts=postsRepository.findById(id)

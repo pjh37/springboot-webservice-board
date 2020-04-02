@@ -4,9 +4,11 @@
     <!--목록 출력 -->
     <div class="container">
         <div class="row">
+            {{#userName}}
             <div class="col-md-6">
                 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
             </div>
+            {{/userName}}
         </div>
         <br>
         <table class="table talbe-horizontal table-bordered">
@@ -29,6 +31,28 @@
             {{/posts}}
             </tbody>
         </table>
+        <div id="pagination">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="/board/1" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" id="curPage" href="/{{curPage}}">{{curPage}}</a></li>
+                    <div id="page">
+
+                    </div>
+                    <li class="page-item">
+                        <a class="page-link" id="lastPage" href="/board/{{lastPage}}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
 </div>
 

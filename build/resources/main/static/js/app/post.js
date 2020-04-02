@@ -1,6 +1,7 @@
 var post={
     init:function(){
         var _this=this;
+        _this.paging();
         $(document).ready(function() {
             $(".visual").css("background-image", "url('/images/ocean.jpg')");
         })
@@ -65,6 +66,26 @@ var post={
          }).fail(function(error){
               alert(JSON.stringify(error));
          });
+    },paging:function(){
+        if($('#lastPage').length>0&&$('#curPage').length>0){
+             var lastPage=$('#lastPage').attr('href').substr(7);
+                    var curPage=$('#curPage').attr('href').substr(7);
+                    var startPage=curPage-5>0 ? curPage-5 : 1;
+                    var endPage=curPage+4>lastPage ? lastPage : curPage+4;
+                    var groupPage=10;
+                    $('#page').empty();
+                    for(i=startPage;i<=endPage;i++){
+                        var str="";
+                        str+="<li class='page-item'>"+
+                        "<a class='page-link'  href=/board/"+i+">"+
+                        i+
+                        "</a>"+
+                        "</li>";
+                        $('#page').append(str);
+                    }
+
+        }
+
     }
 };
 post.init();

@@ -69,6 +69,15 @@ p{
 .index .skill ul img {
     width: 64px;
 }
+#pagination{
+    padding-left:40%;
+}
+#page{
+    display:flex;
+}
+#curPage{
+    display:none;
+}
 @-webkit-keyframes backgroundMove{
     from{
         opacity: 0.0;

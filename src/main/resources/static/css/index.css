@@ -72,6 +72,12 @@ p{
 #pagination{
     padding-left:40%;
 }
+#page{
+    display:flex;
+}
+#curPage{
+    display:none;
+}
 @-webkit-keyframes backgroundMove{
     from{
         opacity: 0.0;
