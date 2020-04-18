@@ -1,52 +1,53 @@
 <header>
-    <div>
-        <h1>
-            <a href="/">
-                PJH'S WEB
-            </a>
-        </h1>
-        <nav class="menu">
-            <ul>
-                <li>
-                    <a href="/about">자기소개</a>
-                </li>
-                <li>
-                    <a href="/project">프로젝트</a>
-                </li>
-                <li>
-                    <a href="https://github.com/pjh37">GitHub</a>
-                </li>
-                <li>
-                    <a href="/board">게시판</a>
-                </li>
-            </ul>
-        </nav>
-        <nav class="account">
+    <!--<nav class="navbar navbar-dark bg-dark"> -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <h2><a id="mainTitle" class="navbar-brand" href="/"> PJH'S WEB</a></h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/about">자기소개</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/project">프로젝트</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/pjh37">GitHub</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/board">게시판</a>
+            </li>
+        </ul>
+        <div id="loginMenu">
             <ul>
                 {{#userName}}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="logoutDropDownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img id="thumb" src="{{userThumb}}"/>
-                        <span id="user">{{userName}}</span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="logoutDropDownMenu">
-                        <a href="/logout" class="dropdown-item" role="button">logout</a>
-                    </div>
-                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="logoutDropDownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img id="thumb" src="{{userThumb}}"/>
+                            <span id="user">{{userName}}</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="logoutDropDownMenu">
+                            <a href="/logout" class="dropdown-item" role="button">logout</a>
+                        </div>
+                    </li>
                 {{/userName}}
                 {{^userName}}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="loginDropDownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="/images/default_thumbnail.png">
-                        로그인
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="loginDropDownMenu">
-                        <a href="/oauth2/authorization/google"  class="dropdown-item" >Google login  </a>
-                        <a href="/oauth2/authorization/naver"  class="dropdown-item" >Naver login  </a>
-                    </div>
-                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="loginDropDownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img id="defaultThumb" src="/images/default_thumbnail.png">
+                            로그인
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="loginDropDownMenu">
+                            <a href="/oauth2/authorization/google"  class="dropdown-item" >Google login  </a>
+                            <a href="/oauth2/authorization/naver"  class="dropdown-item" >Naver login  </a>
+                        </div>
+                    </li>
                 {{/userName}}
             </ul>
-        </nav>
+        </div>
     </div>
+    </nav>
 </header>

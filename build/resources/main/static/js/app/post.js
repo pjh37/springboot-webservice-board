@@ -4,6 +4,7 @@ var post={
         _this.paging();
         $(document).ready(function() {
             $(".visual").css("background-image", "url('/images/ocean.jpg')");
+            $(".visual").addClass('img-responsive');
         })
         $('#btn-save').on('click',function(){
             _this.save();

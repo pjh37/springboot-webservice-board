@@ -22,6 +22,25 @@ main section > div{
 main >div{
     padding:40px 0;
 }
+
+@media (min-width: 768px) {
+  .index ,section{
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .index , section{
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .index , section{
+    width: 100%;
+  }
+}
+
 .index .visual .slide{
     font-size:36px;
     padding:350px 0px 50px 0px;
@@ -66,11 +85,12 @@ p{
     padding: 12px 0px 16px;
     font-weight: 500;
 }
-.index .skill ul img {
+.skillIcon {
     width: 64px;
 }
 #pagination{
     padding-left:40%;
+    display: inline-block;
 }
 #page{
     display:flex;

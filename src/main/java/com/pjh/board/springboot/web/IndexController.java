@@ -33,6 +33,18 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/about")
+    public String about(Model model){
+        return "about";
+    }
+
+    @GetMapping("/project")
+    public String project(Model model){
+        return "project";
+    }
+
+
+
     @GetMapping("/board/{page}")
     public String board(@PathVariable Integer page,Model model,@LoginUser SessionUser user){
         List<PostsListResponseDto> postsListResponseDtos=postsService.findAllDesc(page-1);

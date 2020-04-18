@@ -26,7 +26,14 @@ public class ReplyService {
         else{
             Reply parentReply=replyRepository.findById(requestDto.getParent())
                     .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id="+requestDto.getParent()));
-            parentReply.countUpdate(parentReply.getCount()+1);
+            if(parentReply.getCount()==null){
+                System.out.println("parentReply.getCount() is null");
+                parentReply.countUpdate(1L);
+            }else{
+                parentReply.countUpdate(parentReply.getCount()+1);
+            }
+
+
         }
         return replyRepository.save(requestDto.toEntity()).getId();//댓글 번호 리턴
     }

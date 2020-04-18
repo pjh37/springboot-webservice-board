@@ -216,8 +216,13 @@ function re_reply_list(id){
                                    +" <div class='main'>"
                                    +"<p id='content_"+reply.id+"'>"+reply.content+"</p>"
                                    +"</div>"
-                                   +"<div class='footer'>"
-                                   +" <a href='javascript:;' onClick='re_reply_display("+reply.id+")'>답글</a>"
+                                   +"<div class='footer'>";
+                                    if(reply.count!=null){
+                                        str+="<a href='javascript:;' onClick='re_reply_list("+reply.id+");'>답글"+ reply.count+"개 보기</a>";
+                                    }
+                                   str+="<a href='javascript:;' onClick='re_reply_display("+reply.id+");'>답글</a>"
+                                   +"</div>"
+                                   +"<div class='re_reply_list_"+reply.id+" style='display:none'>"
                                    +"</div>"
                                    +" </div>"
                                    +" <hr/>"
